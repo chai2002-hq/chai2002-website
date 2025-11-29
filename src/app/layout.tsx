@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
@@ -115,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html suppressHydrationWarning lang="en">
       <body
-        className={`min-h-svh max-w-[100vw] bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${geistMono.variable} ${geist.variable} font-sans`}
+        className={`bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary min-h-svh max-w-[100vw] ${geistMono.variable} ${geist.variable} font-sans`}
       >
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-K7KPTRFYFZ" />
         <Script id="ga4-config" strategy="afterInteractive">
@@ -132,6 +134,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Newsletter />
           <Footer />
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
